@@ -98,15 +98,12 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-      overflow: hidden;
-    }
 
     .topline{
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; padding: 18px 22px;
       border-bottom: 1px solid var(--stroke);
       background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-    }
     }
 
     .progress{
@@ -182,7 +179,6 @@
       user-select:none;
       box-shadow: var(--shadow2);
     }
-    }
 
     .btn:hover{ background: var(--btnH); border-color: #cbd5e1; }
     .btn:active{ transform: translateY(1px); }
@@ -211,7 +207,22 @@
 
     .primary .k span{ color: rgba(255,255,255,0.90); }
     .primary .chev{ background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.22); color: rgba(255,255,255,0.95); }
-    .primary:hover{ filter: brightness(1.03); }
+    .primary:hover{
+      filter: brightness(1.03);
+      /* ✅ Evita que “desaparezca” en algunos navegadores al aplicar filtros */
+      opacity: 1;
+    }
+
+    /* ✅ Hover específico para botones azules: asegura contraste y legibilidad */
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(37,99,235,1), rgba(29,78,216,1));
+      border-color: rgba(37,99,235,0.55);
+      color: #ffffff;
+      box-shadow: 0 14px 32px rgba(2,6,23,0.12);
+    }
+
+    .btn.primary:hover .k span{ color: rgba(255,255,255,0.92); }
+    .btn.primary:hover .chev{ background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.26); color: rgba(255,255,255,0.98); }
 
     .footer{
       display:flex;
@@ -263,10 +274,6 @@
 
     .badge.ok{ background: #ecfdf5; border-color: #bbf7d0; }
     .badge.warn{ background: #fff7ed; border-color: #fed7aa; }
-      width: fit-content;
-      font-size: 12px;
-      color: var(--muted);
-    }
 
     .badge .dot{
       width: 12px; height: 12px;
@@ -291,9 +298,6 @@
         inset 0 0 0 1px rgba(15,23,42,0.10);
     }
 
-    .badge.ok .dot{ background: var(--accent2); box-shadow: 0 0 0 4px rgba(22,163,74,0.12); }
-    .badge.warn .dot{ background: var(--warn); box-shadow: 0 0 0 4px rgba(217,119,6,0.12); }
-
     .result-card{
       border-radius: 18px;
       border: 1px solid var(--stroke);
@@ -317,10 +321,45 @@
       box-shadow: 0 10px 22px rgba(2,6,23,0.06);
     }
 
+    /* ✅ FIX: bloque de autoría y referencias (antes estaba en blanco sobre fondo claro) */
+    .credits{
+      margin: 14px 0 0;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.78);
+      box-shadow: 0 10px 22px rgba(2,6,23,0.05);
+      color: var(--muted);
+      font-size: 11.5px;      /* ✅ más pequeño */
+      line-height: 1.5;       /* ✅ más compacto */
+    }
+
+    .credits .title{
+      font-weight: 760;
+      color: var(--text);
+      font-size: 12px;        /* ✅ título más pequeño */
+    }
+
+    .credits .muted{ color: var(--muted2); }
+
+    .credits a{ color: var(--accent); }
+    .credits a:hover{ text-decoration: underline; }
+
+    .credits .title{
+      font-weight: 760;
+      color: var(--text);
+    }
+
+    .credits a{ color: var(--accent); }
+    .credits a:hover{ text-decoration: underline; }
+
+    .credits .muted{ color: var(--muted2); }
+
     @media (max-width: 520px){
       .topline{ padding: 16px 16px; }
       .card-inner{ padding: 24px 16px 22px; }
       h2{ font-size: 26px; }
+      .meta{ min-width: 120px; }
     }
 
     @media print{
@@ -332,6 +371,7 @@
       .badge{ border-color: #e5e7eb; background: #f9fafb; color: #111827; }
       .badge .dot{ box-shadow:none; }
       .btn{ display:none; }
+      .credits{ box-shadow:none; background: white; border-color: #e5e7eb; }
     }
   </style>
 </head>
@@ -542,18 +582,19 @@
       </div>
     </div>
 
-    <div class="small" style="margin:14px 4px 0; color: rgba(255,255,255,0.55); line-height:1.45;">
-      <div style="font-weight:650; color: rgba(255,255,255,0.70);">TraveldocMX | Dr. Rodrigo Ville Benavides (Infectología)</div>
-      <div style="margin-top:8px;">Basado en:</div>
+    <!-- ✅ FIX: antes estaba con texto blanco (rgba(255,255,255,0.55)) y por eso no se leía -->
+    <div class="credits" aria-label="Créditos y fuentes">
+      <div class="title">TraveldocMX | Dr. Rodrigo Ville Benavides (Infectología)</div>
+      <div class="muted" style="margin-top:10px;">Basado en:</div>
       <div style="margin-top:6px;">
         <a href="https://www.gob.mx/cms/uploads/attachment/file/905605/Lineamientos_de_Campan_a_de_Vacunacion_y_Recuperacion_de_Coberturas_2024_Vf.pdf" target="_blank" rel="noopener noreferrer">Lineamientos de Campaña de Vacunación y Recuperación de Coberturas 2024</a>
         · <a href="https://www.gob.mx/cms/uploads/attachment/file/977163/Lineamientos_Generales_2025_.pdf" target="_blank" rel="noopener noreferrer">Lineamientos Generales 2025</a>
         · <a href="https://educacionensalud.imss.gob.mx/ces_wp/wp-content/uploads/2025/07/INFO_IEPCS_Esquema-vacunacion_V5A.pdf" target="_blank" rel="noopener noreferrer">IMSS: Esquema de vacunación (V5A)</a>
       </div>
-      <div style="margin-top:10px;">Uso orientativo/educativo. No es publicidad y no sustituye una valoración médica ni las recomendaciones vigentes de la autoridad sanitaria (local o federal).</div>
-      <div style="margin-top:6px;">Los lineamientos pueden cambiar; verifica la información en canales oficiales o en tu unidad de salud.</div>
-      <div style="margin-top:10px;">Versión 1.0 | Actualizado: 2026-02-06</div>
-      <div style="margin-top:6px;">Comentarios/correcciones: <a href="mailto:dr.rodrigoville@gmail.com">dr.rodrigoville@gmail.com</a></div>
+      <div class="muted" style="margin-top:10px;">Uso orientativo/educativo. No es publicidad y no sustituye una valoración médica ni las recomendaciones vigentes de la autoridad sanitaria (local o federal).</div>
+      <div class="muted" style="margin-top:6px;">Los lineamientos pueden cambiar; verifica la información en canales oficiales o en tu unidad de salud.</div>
+      <div class="muted" style="margin-top:10px;">Versión 1.0 | Actualizado: 2026-02-06</div>
+      <div class="muted" style="margin-top:6px;">Comentarios/correcciones: <a href="mailto:dr.rodrigoville@gmail.com">dr.rodrigoville@gmail.com</a></div>
     </div>
   </div>
 
