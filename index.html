@@ -304,12 +304,8 @@
         <section class="screen" id="screen-disclaimer" data-step="1" data-hint="Aviso importante">
           <h2>Aviso importante</h2>
           <p class="sub"><strong>Esta herramienta es una guía orientativa</strong> para apoyar decisiones sobre vacunación contra sarampión. <strong>No es consejo médico</strong> y no sustituye la valoración clínica, los lineamientos institucionales ni los protocolos locales.</p>
-          <div class="result-note" style="margin: 8px 0 12px;">
-            La situación epidemiológica y las recomendaciones pueden cambiar sin aviso. En caso de discrepancia, prevalece la indicación de la autoridad sanitaria y del personal de salud.
-          </div>
-          <div class="result-note" style="margin: 0 0 12px;">
-            Consultar a profesionales de la salud antes de decidir si existe cualquiera de los siguientes escenarios: inmunosupresión, embarazo, antecedente de reacción alérgica grave (anafilaxia) a una vacuna con componente sarampión, síntomas compatibles con infección o exposición reciente a un caso, edad menor de 6 meses, o brote en una institución (guardería, escuela, hospital, albergue).
-          </div>
+          <p class="sub" style="margin-top:-8px;">La situación epidemiológica y las recomendaciones pueden cambiar sin aviso. En caso de discrepancia, prevalece la indicación de la autoridad sanitaria y del personal de salud.</p>
+          <p class="sub" style="margin-top:-8px;">Consultar a profesionales de la salud antes de decidir si existe cualquiera de los siguientes escenarios: inmunosupresión, embarazo, antecedente de reacción alérgica grave (anafilaxia) a una vacuna con componente sarampión, síntomas compatibles con infección o exposición reciente a un caso, edad menor de 6 meses, o brote en una institución (guardería, escuela, hospital, albergue).</p>
           <div class="grid cols2">
             <button class="btn" id="btnExit">
               <span class="k"><strong>Salir</strong><span>Cerrar esta página</span></span>
@@ -330,7 +326,7 @@
             En algunos contextos, la autoridad sanitaria o instituciones pueden requerir vacunación adicional en <strong>grupos prioritarios</strong> (por ejemplo, personal de salud, personal educativo y jornaleros/as agrícolas), incluso con dosis previas registradas. Seguir lineamientos institucionales o acudir al centro de salud.
           </div>
           <div class="grid">
-            <button class="btn" data-next="screen-confirmed">
+            <button class="btn primary" data-next="screen-confirmed">
               <span class="k"><strong>Iniciar evaluación</strong><span>Responder unas pocas preguntas para obtener una recomendación orientativa</span></span>
               <span class="chev">→</span>
             </button>
@@ -539,8 +535,8 @@
 
     function footerHintFor(id){
       if(id === 'screen-disclaimer') return 'Lee el aviso y continúa para iniciar el flujo.';
-      if(id === 'screen-intro') return 'Sugerencia: si hay cartilla/registro, úsalo para confirmar dosis.';
-      if(id === 'screen-confirmed') return 'Si hubo sarampión confirmado por laboratorio, la vacunación usualmente no es necesaria.';
+      if(id === 'screen-intro') return '';
+      if(id === 'screen-confirmed') return '';
       if(id === 'screen-outbreak') return 'En brote/campaña, la recomendación puede variar por localidad.';
       if(id === 'screen-age') return 'Selecciona el rango de edad actual.';
       if(id === 'screen-evidence') return 'La cartilla/registro mejora la precisión de la recomendación.';
