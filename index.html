@@ -405,7 +405,7 @@
         <!-- Screen: Disclaimer (Pantalla 1) -->
         <section class="screen" id="screen-disclaimer" data-step="1" data-hint="Aviso importante">
           <h2>Aviso importante</h2>
-          <p class="sub"><strong>Esta herramienta es una guía orientativa</strong> para apoyar decisiones sobre vacunación contra sarampión. <strong>No es consejo médico</strong> y no sustituye la valoración clínica, los lineamientos institucionales ni los protocolos locales.</p>
+          <p class="sub"><strong>Esta  es una guía orientativa</strong> para apoyar decisiones sobre vacunación contra sarampión. <strong>No es consejo médico</strong> y no sustituye la valoración clínica, ni las recomendaciones locales o federales.</p>
           <p class="sub" style="margin-top:-8px;">La situación epidemiológica y las recomendaciones pueden cambiar sin aviso. En caso de discrepancia, prevalece la indicación de la autoridad sanitaria y del personal de salud.</p>
           <p class="sub" style="margin-top:-8px;">Consultar a profesionales de la salud antes de decidir si existe cualquiera de los siguientes escenarios: inmunosupresión, embarazo, antecedente de reacción alérgica grave (anafilaxia) a una vacuna con componente sarampión, síntomas compatibles con infección o exposición reciente a un caso, edad menor de 6 meses, o brote en una institución (guardería, escuela, hospital, albergue).</p>
           <div class="grid cols2">
@@ -423,9 +423,9 @@
         <!-- Screen: Intro -->
         <section class="screen" id="screen-intro" data-step="2" data-hint="Introducción">
           <h2>Antes de empezar</h2>
-          <p class="sub">El esquema completo de vacunación contra sarampión se basa en <strong>2 dosis</strong> a lo largo de la vida (según edad y calendario vigente). En contexto de brote o campaña, puede recomendarse además una <strong>“dosis cero”</strong> para niñas y niños de <strong>6 a 11 meses</strong>. Esta dosis cero <strong>no cuenta</strong> como parte del esquema regular; posteriormente debe iniciarse y completarse el esquema por edad.</p>
+          <p class="sub">El esquema completo de vacunación contra sarampión se basa en <strong>2 dosis</strong> a lo largo de la vida. En contexto de epidemias, puede recomendarse además una <strong>“dosis cero”</strong> para niñas y niños de <strong>6 a 11 meses</strong>. Esta dosis cero <strong>no cuenta</strong> como parte del esquema regular; posteriormente debe iniciarse y completarse el esquema por edad.</p>
           <div class="result-note" style="margin: 8px 0 18px;">
-            En algunos contextos, la autoridad sanitaria o instituciones pueden requerir vacunación adicional en <strong>grupos prioritarios</strong> (por ejemplo, personal de salud, personal educativo y jornaleros/as agrícolas), incluso con dosis previas registradas. Seguir lineamientos institucionales o acudir al centro de salud.
+            En algunos contextos, la autoridad sanitaria puede recomendar vacunación adicional en <strong>grupos prioritarios</strong> (por ejemplo, personal de salud, personal educativo y jornaleros/as agrícolas), incluso con dosis previas registradas. Es importante seguir las recomendaciones de la autoridad o acudir al centro de salud.
           </div>
           <div class="grid">
             <button class="btn primary" data-next="screen-confirmed">
@@ -438,7 +438,7 @@
         <!-- Screen: Measles confirmed -->
         <section class="screen" id="screen-confirmed" data-step="3" data-hint="Antecedente de sarampión">
           <h2>Sarampión confirmado</h2>
-          <p class="sub">¿Alguna vez se confirmó sarampión por laboratorio?</p>
+          <p class="sub">¿Alguna vez se confirmó sarampión por laboratorio en la persona que desea vacunarse?</p>
           <div class="grid cols2">
             <button class="btn" data-answer="confirmed" data-value="yes">
               <span class="k"><strong>Sí</strong><span>Confirmado por laboratorio</span></span>
@@ -454,7 +454,7 @@
         <!-- Screen: Outbreak -->
         <section class="screen" id="screen-outbreak" data-step="4" data-hint="Contexto epidemiológico">
           <h2>Brote o campaña</h2>
-          <p class="sub">¿Hay brote/campaña local o una recomendación vigente de la autoridad sanitaria para vacunación contra sarampión en tu zona?</p>
+          <p class="sub">¿Hay brote o campaña de la autoridad sanitaria para vacunación contra sarampión en tu zona?</p>
           <div class="grid cols3">
             <button class="btn" data-answer="outbreak" data-value="yes">
               <span class="k"><strong>Sí</strong><span>Hay brote/campaña o recomendación vigente</span></span>
@@ -489,7 +489,7 @@
               <span class="chev">→</span>
             </button>
             <button class="btn" data-answer="age" data-value="18m_9y">
-              <span class="k"><strong>18 meses a 9 años</strong><span>Completar esquema según registro</span></span>
+              <span class="k"><strong>18 meses a 9 años</strong><span>Completar esquema según recomendaciones</span></span>
               <span class="chev">→</span>
             </button>
             <button class="btn" data-answer="age" data-value="10_49y">
@@ -497,7 +497,7 @@
               <span class="chev">→</span>
             </button>
             <button class="btn" data-answer="age" data-value="50p">
-              <span class="k"><strong>50 años o más</strong><span>En general no se recomienda de rutina</span></span>
+              <span class="k"><strong>50 años o más</strong><span>En general no se recomienda la vacunación de rutina</span></span>
               <span class="chev">→</span>
             </button>
           </div>
@@ -506,14 +506,14 @@
         <!-- Screen: Evidence -->
         <section class="screen" id="screen-evidence" data-step="6" data-hint="Cartilla / registro">
           <h2>Evidencia de vacunación</h2>
-          <p class="sub">¿Se cuenta con cartilla o un registro para confirmar cuántas dosis se han aplicado?</p>
+          <p class="sub">¿Se cuenta con cartilla o un registro para confirmar cuántas dosis se han aplicado a lo largo de la vda?</p>
           <div class="grid cols2">
             <button class="btn" data-answer="evidence" data-value="yes">
               <span class="k"><strong>Sí</strong><span>Se puede confirmar con cartilla/registro</span></span>
               <span class="chev">→</span>
             </button>
             <button class="btn" data-answer="evidence" data-value="no_unsure">
-              <span class="k"><strong>No / No estoy seguro</strong><span>No hay registro confiable</span></span>
+              <span class="k"><strong>No / No estoy seguro /  No recuerdo</strong><span>No hay registro confiable</span></span>
               <span class="chev">→</span>
             </button>
           </div>
@@ -522,7 +522,7 @@
         <!-- Screen: Doses documented -->
         <section class="screen" id="screen-doses" data-step="7" data-hint="Dosis registradas">
           <h2>Dosis documentadas</h2>
-          <p class="sub">Según cartilla/registro, ¿cuántas dosis contra sarampión se tienen registradas?</p>
+          <p class="sub">Según cartilla/registro, ¿cuántas dosis contra sarampión se tienen registradas en toda la vida?</p>
           <div class="grid cols3">
             <button class="btn" data-answer="doses" data-value="0">
               <span class="k"><strong>0 dosis</strong><span>Sin dosis registradas</span></span>
@@ -545,7 +545,7 @@
           <p class="sub" id="before12Prompt">Esa dosis registrada, ¿se aplicó antes de cumplir 12 meses?</p>
           <div class="grid cols3">
             <button class="btn" data-answer="before12" data-value="yes">
-              <span class="k"><strong>Sí</strong><span>Antes de 12 meses (dosis temprana)</span></span>
+              <span class="k"><strong>Sí</strong><span>Antes de 12 meses (dosis cero)</span></span>
               <span class="chev">→</span>
             </button>
             <button class="btn" data-answer="before12" data-value="no">
@@ -568,13 +568,13 @@
               <p id="resultPrimary">—</p>
               <p id="resultSecondary">—</p>
             </div>
-            <div class="result-note" id="resultNote">Nota: esta herramienta es orientativa. En caso de brote/campaña, la estrategia local puede indicar acciones adicionales. Si hay duda, acudir al centro de salud con cartilla/registro.</div>
+            <div class="result-note" id="resultNote">Nota: esta herramienta es orientativa. En caso de brote/campaña, la autoridad puede indicar acciones adicionales. Si hay duda, acudir al centro de salud con cartilla/registro.</div>
           </div>
         </section>
       </div>
 
       <div class="footer">
-        <div class="small" id="footerSmall">Sugerencia: usar cartilla/registro cuando esté disponible.</div>
+        <div class="small" id="footerSmall">Sugerencia: usar cartilla o registro cuando esté disponible.</div>
         <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
           <button class="navbtn secondary" id="btnBack">← Atrás</button>
           <button class="navbtn" id="btnHome">Inicio</button>
@@ -584,7 +584,7 @@
 
     <!-- ✅ FIX: antes estaba con texto blanco (rgba(255,255,255,0.55)) y por eso no se leía -->
     <div class="credits" aria-label="Créditos y fuentes">
-      <div class="title">TraveldocMX | Dr. Rodrigo Ville Benavides (Infectología)</div>
+      <div class="title">TraveldocMX | Dr. Rodrigo Ville Benavides (Infectólogo)</div>
       <div class="muted" style="margin-top:10px;">Basado en:</div>
       <div style="margin-top:6px;">
         <a href="https://www.gob.mx/cms/uploads/attachment/file/905605/Lineamientos_de_Campan_a_de_Vacunacion_y_Recuperacion_de_Coberturas_2024_Vf.pdf" target="_blank" rel="noopener noreferrer">Lineamientos de Campaña de Vacunación y Recuperación de Coberturas 2024</a>
@@ -592,7 +592,7 @@
         · <a href="https://educacionensalud.imss.gob.mx/ces_wp/wp-content/uploads/2025/07/INFO_IEPCS_Esquema-vacunacion_V5A.pdf" target="_blank" rel="noopener noreferrer">IMSS: Esquema de vacunación (V5A)</a>
       </div>
       <div class="muted" style="margin-top:10px;">Uso orientativo/educativo. No es publicidad y no sustituye una valoración médica ni las recomendaciones vigentes de la autoridad sanitaria (local o federal).</div>
-      <div class="muted" style="margin-top:6px;">Los lineamientos pueden cambiar; verifica la información en canales oficiales o en tu unidad de salud.</div>
+      <div class="muted" style="margin-top:6px;">Los lineamientos pueden cambiar sin aviso; verifica la información más actualizada en canales oficiales o en tu unidad de salud.</div>
       <div class="muted" style="margin-top:10px;">Versión 1.0 | Actualizado: 2026-02-06</div>
       <div class="muted" style="margin-top:6px;">Comentarios/correcciones: <a href="mailto:dr.rodrigoville@gmail.com">dr.rodrigoville@gmail.com</a></div>
     </div>
@@ -640,11 +640,11 @@
       if(id === 'screen-disclaimer') return 'Lee el aviso y continúa para iniciar el flujo.';
       if(id === 'screen-intro') return '';
       if(id === 'screen-confirmed') return '';
-      if(id === 'screen-outbreak') return 'En brote/campaña, la recomendación puede variar por localidad.';
+      if(id === 'screen-outbreak') return 'En brotes, la recomendación puede variar por localidad.';
       if(id === 'screen-age') return 'Selecciona el rango de edad actual.';
       if(id === 'screen-evidence') return 'La cartilla/registro mejora la precisión de la recomendación.';
-      if(id === 'screen-doses') return 'Cuenta las dosis registradas contra sarampión.';
-      if(id === 'screen-before12') return 'Distinguir dosis temprana (antes de 12 meses) vs esquema por edad.';
+      if(id === 'screen-doses') return 'Cuenta las dosis registradas contra sarampión a lo largo de la vida.';
+      if(id === 'screen-before12') return 'Distinguir dosis cero (antes de 12 meses) vs esquema por edad.';
       if(id === 'screen-result') return 'Si hay duda, acudir al centro de salud con cartilla/registro.';
       return '—';
     }
@@ -728,7 +728,7 @@
 
       let note = 'Nota: esta herramienta es orientativa. En caso de brote/campaña, la estrategia local puede indicar acciones adicionales. Si hay duda, acudir al centro de salud con cartilla/registro.';
       if(state.confirmed === 'yes'){
-        note = 'Nota: si hubo sarampión confirmado por laboratorio, en general no se requiere vacunación. Si existe indicación médica especial o recomendación formal, seguir esa indicación.';
+        note = 'Nota: si hubo sarampión confirmado por laboratorio, en general no se requiere vacunación. Si existe indicación médica especial, seguir esa indicación.';
       }
       resultNote.textContent = note;
     }
@@ -740,7 +740,7 @@
           return makeResult('warn','Resultado','Aún no corresponde vacunación.','Revisar nuevamente al cumplir 6 meses si hay una indicación vigente por brote (dosis cero).');
         case '6_11m':
           if(o === 'yes' || o === 'unsure'){
-            return makeResult('ok','Resultado','Sí se sugiere vacunación (dosis cero).','Acudir al centro de salud para valoración y aplicación según recomendación vigente.');
+            return makeResult('ok','Resultado','Sí se sugiere vacunación (dosis cero).','Acudir al centro de salud para valoración según recomendación vigente.');
           }
           return makeResult('warn','Resultado','En general aún no corresponde vacunación de rutina en esta edad.','Acudir al centro de salud si existe indicación especial o si cambia la recomendación vigente.');
         case '12_17m':
@@ -753,7 +753,7 @@
         case '10_49y':
           return makeResult('ok','Resultado','Sí se sugiere vacunación en cuanto sea posible.','Se debe completar un esquema de 2 dosis separadas por al menos 28 días.');
         case '50p':
-          return makeResult('warn','Resultado','En general no es necesario vacunarse de rutina.','Acudir a valoración médica si existe indicación especial o si hay campaña local/recomendación de la autoridad sanitaria.');
+          return makeResult('warn','Resultado','En general no es necesario vacunarse de rutina.','Acudir a valoración médica si existe indicación especial o si hay recomendación de la autoridad sanitaria.');
         default:
           return makeResult('warn','Resultado','Información insuficiente.','Reiniciar y completar la evaluación.');
       }
@@ -777,7 +777,7 @@
       }
 
       if(age === '50p'){
-        return makeResult('warn','Resultado','En general no es necesario vacunarse de rutina.','Acudir a valoración médica si existe indicación especial o si hay campaña local/recomendación de la autoridad sanitaria.');
+        return makeResult('warn','Resultado','En general no es necesario vacunarse de rutina.','Acudir a valoración médica si existe indicación especial o si hay recomendación de la autoridad sanitaria.');
       }
 
       if(age === '10_49y'){
@@ -789,7 +789,7 @@
       if(age === '6_11m'){
         if(doses === '0'){
           if(o === 'yes' || o === 'unsure') return makeResult('ok','Resultado','Sí se sugiere vacunación (dosis cero).','Acudir al centro de salud para valoración y aplicación según recomendación vigente.');
-          return makeResult('warn','Resultado','En general no se recomienda dosis cero fuera de brote/campaña.','Acudir al centro de salud si existe indicación especial.');
+          return makeResult('warn','Resultado','En general no se recomienda dosis cero fuera de brote/campaña.','Acudir al centro de salud si existe indicación especial o duda.');
         }
         if(state.before12 === 'yes'){
           return makeResult('warn','Resultado','No se recomienda aplicar otra dosis ahora.','Se recomienda iniciar/continuar el esquema a partir de los 12 meses, según indicación del centro de salud.');
@@ -802,9 +802,9 @@
         if(doses === '1'){
           if(state.before12 === 'yes') return makeResult('ok','Resultado','Sí se recomienda vacunación ahora (inicio del esquema formal).','Deben pasar al menos 28 días entre dosis.');
           if(state.before12 === 'no') return makeResult('warn','Resultado','No se recomienda aplicar otra dosis ahora.','Acudir al centro de salud para confirmar cuándo corresponde la siguiente dosis según el esquema por edad.');
-          return makeResult('warn','Resultado','Se recomienda acudir al centro de salud con cartilla/registro.','Se confirmará si la dosis fue antes o después de 12 meses y si corresponde una dosis en este momento.');
+          return makeResult('warn','Resultado','Se recomienda acudir al centro de salud con cartilla/registro.','Se evaluará si la dosis fue antes o después de 12 meses y si corresponde una dosis en este momento.');
         }
-        return makeResult('warn','Resultado','En general no se recomienda aplicar otra dosis ahora.','Acudir al centro de salud si existen dudas sobre fechas o registros.');
+        return makeResult('warn','Resultado','En general no se recomienda aplicar otra dosis ahora.','Consulta con profesionales de la salud si existen dudas sobre fechas o registros.');
       }
 
       if(age === '18m_9y'){
