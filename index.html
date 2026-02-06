@@ -3,433 +3,857 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guía orientativa para vacunación contra sarampióne epidemias - México</title>
+  <title>¿Se recomienda vacunación contra sarampión?</title>
   <style>
     :root{
-      --bg:#0b1220; --card:#121c33; --muted:#9fb0d0; --text:#e8efff;
-      --accent:#6aa8ff; --warn:#ffcc66; --ok:#6ee7b7; --bad:#fb7185;
-      --border:rgba(255,255,255,.10);
+      --bg: #0b1220;
+      --stroke: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --muted2: rgba(255,255,255,0.58);
+      --accent: #7c3aed;
+      --accent2: #22c55e;
+      --warn: #f59e0b;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --radius: 20px;
+      --btn: rgba(255,255,255,0.10);
+      --btnH: rgba(255,255,255,0.14);
+      --focus: 0 0 0 4px rgba(124,58,237,0.30);
+      --maxw: 980px;
     }
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#081022,#0b1220 50%,#071226);color:var(--text)}
-    .wrap{max-width:980px;margin:0 auto;padding:28px 16px 40px}
-    h1{font-size:22px;margin:0 0 10px;letter-spacing:.2px}
-    p{color:var(--muted);margin:6px 0 14px;line-height:1.4}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:900px){.grid{grid-template-columns:1.1fr .9fr}}
-    .card{background:rgba(18,28,51,.92);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
-    .row{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0}
-    @media(min-width:600px){.row.two{grid-template-columns:1fr 1fr}}
-    label{font-size:12px;color:var(--muted);display:block;margin:0 0 6px}
-    input, select{width:100%;box-sizing:border-box;padding:10px 10px;border-radius:10px;border:1px solid var(--border);background:#0b1530;color:var(--text);outline:none}
-    input:focus, select:focus{border-color:rgba(106,168,255,.75);box-shadow:0 0 0 3px rgba(106,168,255,.15)}
-    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    button{padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#132144;color:var(--text);cursor:pointer}
-    button.primary{background:linear-gradient(135deg,#2b6cff,#6aa8ff);border-color:rgba(255,255,255,.15);color:#071226;font-weight:700}
-    button:active{transform:translateY(1px)}
 
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(11,21,48,.75);font-size:12px;color:var(--muted)}
-    .pill b{color:var(--text)}
+    *{ box-sizing: border-box; }
 
-    .result{margin-top:10px;border-radius:14px;border:1px solid var(--border);background:rgba(11,21,48,.65);padding:14px}
-    .result h2{font-size:16px;margin:0 0 8px}
-    .kpi{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 0}
-    .kpi .pill{background:rgba(18,28,51,.8)}
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,0.25), transparent 55%),
+        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,0.14), transparent 55%),
+        radial-gradient(700px 500px at 70% 90%, rgba(245,158,11,0.12), transparent 55%),
+        linear-gradient(180deg, #070b14 0%, var(--bg) 60%, #070b14 100%);
+      min-height: 100vh;
+    }
 
-    .callout{border-left:4px solid var(--accent);padding:10px 12px;border-radius:10px;background:rgba(106,168,255,.08);color:var(--text)}
-    .callout small{display:block;color:var(--muted);margin-top:6px;line-height:1.35}
+    a{ color: inherit; }
 
-    .tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;border:1px solid var(--border);margin-right:8px}
-    .tag.ok{background:rgba(110,231,183,.10);color:var(--ok);border-color:rgba(110,231,183,.25)}
-    .tag.warn{background:rgba(255,204,102,.10);color:var(--warn);border-color:rgba(255,204,102,.25)}
-    .tag.bad{background:rgba(251,113,133,.10);color:var(--bad);border-color:rgba(251,113,133,.25)}
+    .wrap{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 18px 36px;
+    }
 
-    .hide{display:none}
-    .footer{margin-top:14px;color:var(--muted);font-size:12px;line-height:1.35}
+    header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 0 18px;
+    }
 
-        /* Disclaimer overlay */
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:18px;z-index:9999}
-    .modal{max-width:820px;width:100%;background:rgba(18,28,51,.98);border:1px solid var(--border);border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.45);padding:16px}
-    .modal h2{margin:0 0 8px;font-size:18px}
-    .modal p{margin:8px 0;color:var(--muted)}
+    .brand{ display:flex; align-items:center; gap:12px; min-width:0; }
+
+    .logo{
+      width: 42px; height: 42px; border-radius: 14px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.95), rgba(34,197,94,0.65));
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+      position: relative; overflow: hidden; flex: 0 0 auto;
+    }
+
+    .logo:before{
+      content: "";
+      position: absolute; inset: -30%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), transparent 40%);
+      transform: rotate(18deg);
+      opacity: 0.55;
+    }
+
+    .brand h1{ font-size: 16px; margin: 0; font-weight: 720; line-height: 1.2; letter-spacing: .2px; }
+    .brand p{ margin: 4px 0 0; font-size: 12px; color: var(--muted2); line-height: 1.25; }
+
+    .pill{
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 12px; border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--stroke);
+      color: var(--muted);
+      font-size: 12px; cursor: pointer; user-select: none;
+      transition: transform 0.05s ease, background 0.15s ease;
+    }
+
+    .pill:hover{ background: rgba(255,255,255,0.085); }
+    .pill:active{ transform: translateY(1px); }
+    .pill:focus{ outline: none; box-shadow: var(--focus); }
+
+    .card{
+      background: rgba(10, 15, 26, 0.92);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topline{
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 16px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .progress{
+      width: 100%; height: 8px; border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .bar{
+      height: 100%; width: 0%; border-radius: 999px;
+      background: linear-gradient(90deg, rgba(124,58,237,0.95), rgba(34,197,94,0.85));
+      transition: width 0.35s ease;
+    }
+
+    .meta{ display:flex; flex-direction:column; gap:3px; min-width:140px; text-align:right; }
+    .meta .step{ font-size: 12px; color: var(--muted); }
+    .meta .hint{ font-size: 11px; color: var(--muted2); }
+
+    .card-inner{ padding: 22px; }
+
+    .screen{ display:none; animation: fadeIn 0.18s ease; }
+    .screen.active{ display:block; }
+
+    @keyframes fadeIn{
+      from{ opacity:0; transform: translateY(6px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    h2{ margin:0 0 8px; font-size: 22px; letter-spacing: .2px; }
+
+    .sub{ margin:0 0 18px; color: var(--muted); line-height:1.45; font-size:14px; }
+
+    .grid{ display:grid; gap:12px; }
+
+    @media (min-width: 820px){
+      .grid.cols2{ grid-template-columns: 1fr 1fr; }
+      .grid.cols3{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .btn{
+      width:100%;
+      display:inline-flex;
+      align-items:center;
+      justify-content: space-between;
+      gap:12px;
+      padding:14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: var(--btn);
+      color: var(--text);
+      cursor:pointer;
+      transition: background 0.18s ease, transform 0.05s ease, border-color 0.18s ease;
+      text-align:left;
+      font-size: 14px;
+      line-height: 1.25;
+      user-select:none;
+    }
+
+    .btn:hover{ background: var(--btnH); border-color: rgba(255,255,255,0.20); }
+    .btn:active{ transform: translateY(1px); }
+    .btn:focus{ outline:none; box-shadow: var(--focus); }
+
+    .btn .k{ display:flex; flex-direction:column; gap:3px; }
+    .btn .k strong{ font-weight:720; }
+    .btn .k span{ color: var(--muted2); font-size:12px; }
+
+    .chev{
+      flex:0 0 auto;
+      width: 28px; height: 28px;
+      border-radius: 10px;
+      display:grid; place-items:center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.75);
+      font-size: 16px;
+    }
+
+    .primary{
+      background: linear-gradient(90deg, rgba(124,58,237,0.95), rgba(34,197,94,0.85));
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .primary:hover{ filter: brightness(1.05); }
+
+    .footer{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap:10px;
+      padding: 16px 22px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      flex-wrap: wrap;
+    }
+
+    .navbtn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      cursor:pointer;
+      transition: background 0.18s ease, transform 0.05s ease;
+      font-size: 13px;
+      user-select:none;
+    }
+
+    .navbtn:hover{ background: rgba(255,255,255,0.11); }
+    .navbtn:active{ transform: translateY(1px); }
+    .navbtn:focus{ outline:none; box-shadow: var(--focus); }
+
+    .navbtn.secondary{ background: transparent; }
+    .navbtn.secondary:hover{ background: rgba(255,255,255,0.08); }
+
+    .small{ font-size:12px; color: var(--muted2); line-height:1.35; }
+
+    .result{ display:grid; gap:14px; }
+
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      width: fit-content;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .badge .dot{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(124,58,237,0.18);
+    }
+
+    .badge.ok .dot{ background: var(--accent2); box-shadow: 0 0 0 4px rgba(34,197,94,0.16); }
+    .badge.warn .dot{ background: var(--warn); box-shadow: 0 0 0 4px rgba(245,158,11,0.16); }
+
+    .result-card{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      padding: 16px;
+      display:grid; gap:8px;
+    }
+
+    .result-card h3{ margin:0; font-size:18px; letter-spacing:.2px; }
+    .result-card p{ margin:0; color: var(--muted); line-height:1.45; font-size:14px; }
+
+    .result-note{
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted2);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    @media print{
+      body{ background: white; color: #0b1220; }
+      header, .footer, .pill{ display:none !important; }
+      .card{ box-shadow:none; border: 1px solid #e5e7eb; }
+      .topline{ background: transparent; }
+      .result-note, .result-card{ background: white; border-color: #e5e7eb; }
+      .badge{ border-color: #e5e7eb; background: #f9fafb; color: #111827; }
+      .badge .dot{ box-shadow:none; }
+      .btn{ display:none; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- Disclaimer / gate -->
-    <div class="overlay" id="disclaimerOverlay" aria-modal="true" role="dialog">
-    <div class="modal">
-      <h2>Aviso importante</h2>
-      <p>Esta herramienta es una <b>guía orientativa</b>. <b>No es consejo médico</b> y no sustituye la valoración clínica.</p>
-      <p>La situación epidemiológica y las recomendaciones <b>pueden cambiar</b>. Debes seguir <b>protocolos locales</b> y las indicaciones de <b>profesionales de la salud</b>. Úsalo solo como apoyo para la toma de decisiones.</p>
-      <p>Si hay <b>inmunosupresión</b>, <b>embarazo</b>, <b>exposición reciente</b> o <b>brote institucional</b>, consulta con profesionales de la salud.</p>
-
-      <div class="btns" style="justify-content:flex-end;">
-        <button id="enter" class="primary">Entendido, continuar</button>
-      </div>
-    </div>
-  </div>
-
   <div class="wrap">
-    <h1>Guía orientativa para vacunación contra sarampión</h1>
-    <p>Ingresa el <b>mes y año de nacimiento</b> y (cuando aplica) el antecedente de sarampión y número de dosis recibidas en la vida, para obtener una orientación más clara.</p>
-
-    <div class="grid">
-      <div class="card">
-        <h2 style="font-size:16px;margin:0 0 8px;">Datos de entrada</h2>
-
-        <div class="row two">
-          <div>
-            <label for="dobMonth">Mes y año de nacimiento (mm/aaaa)</label>
-            <input id="dobMonth" type="month" />
-          </div>
-          <div>
-            <label for="doses">Dosis de vacuna SRP/SR recibidas en la vida (si se conoce)</label>
-            <select id="doses">
-              <option value="unknown" selected>No sé</option>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2 (o más)</option>
-            </select>
-          </div>
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>¿Se recomienda vacunación contra sarampión?</h1>
+          <p>Flujo orientativo • Respuesta rápida • Enfoque en “hoy”</p>
         </div>
+      </div>
+      <div class="header-actions">
+        <button class="pill" id="btnRestart" title="Reiniciar">Reiniciar</button>
+      </div>
+    </header>
 
-        <div class="row two" id="adultQuestions">
-          <div>
-            <label for="measles">¿Le ha dado sarampión alguna vez en la vida?</label>
-            <select id="measles">
-              <option value="no" selected>No</option>
-              <option value="yes">Sí</option>
-              <option value="unknown">No sé</option>
-            </select>
-          </div>
-          <div>
-            <label for="context">Contexto</label>
-            <select id="context" disabled>
-              <option value="outbreak" selected>Se asume brote/epidemia (dosis cero 6–11 meses)</option>
-            </select>
-          </div>
+    <div class="card" id="appCard">
+      <div class="topline">
+        <div class="progress" aria-label="Progreso">
+          <div class="bar" id="progressBar"></div>
         </div>
-
-        <div class="btns">
-          <button class="primary" id="calc">Calcular recomendación</button>
-          <button id="reset">Reiniciar</button>
-        </div>
-
-        <div class="footer">
-          Nota: Esto es una <b>guía orientativa</b> (no sustituye valoración clínica ni las recomendaciones locales oficiales). Si hay inmunosupresión, embarazo/lactancia, exposición reciente, menor de 6 meses o brote institucional, consulte con un profesional de la salud.
+        <div class="meta">
+          <div class="step" id="stepLabel">Paso 1</div>
+          <div class="hint" id="stepHint">Aviso importante</div>
         </div>
       </div>
 
-      <div class="card">
-        <h2 style="font-size:16px;margin:0 0 8px;">Resultado</h2>
-
-        <div class="result" id="result">
-          <div class="callout">
-            Ingresa el <b>mes/año de nacimiento</b> y presiona <b>Calcular recomendación</b>.
-            <small>Se calculará la edad aproximada en años/meses y se emitirá la conducta sugerida.</small>
+      <div class="card-inner">
+        <!-- Screen: Disclaimer (Pantalla 1) -->
+        <section class="screen" id="screen-disclaimer" data-step="1" data-hint="Aviso importante">
+          <h2>Aviso importante</h2>
+          <p class="sub"><strong>Esta herramienta es una guía orientativa</strong> para apoyar decisiones sobre vacunación contra sarampión. <strong>No es consejo médico</strong> y no sustituye la valoración clínica, los lineamientos institucionales ni los protocolos locales.</p>
+          <div class="result-note" style="margin: 8px 0 12px;">
+            La situación epidemiológica y las recomendaciones pueden cambiar sin aviso. En caso de discrepancia, prevalece la indicación de la autoridad sanitaria y del personal de salud.
           </div>
-        </div>
+          <div class="result-note" style="margin: 0 0 12px;">
+            Consultar a profesionales de la salud antes de decidir si existe cualquiera de los siguientes escenarios: inmunosupresión, embarazo, antecedente de reacción alérgica grave (anafilaxia) a una vacuna con componente sarampión, síntomas compatibles con infección o exposición reciente a un caso, edad menor de 6 meses, o brote en una institución (guardería, escuela, hospital, albergue).
+          </div>
+          <div class="grid cols2">
+            <button class="btn" id="btnExit">
+              <span class="k"><strong>Salir</strong><span>Cerrar esta página</span></span>
+              <span class="chev">↗</span>
+            </button>
+            <button class="btn primary" data-next="screen-intro">
+              <span class="k"><strong>Acepto</strong><span>Continuar</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
 
-        <div class="kpi" id="kpi" aria-live="polite"></div>
+        <!-- Screen: Intro -->
+        <section class="screen" id="screen-intro" data-step="2" data-hint="Introducción">
+          <h2>Antes de empezar</h2>
+          <p class="sub">El esquema completo de vacunación contra sarampión se basa en <strong>2 dosis</strong> a lo largo de la vida (según edad y calendario vigente). En contexto de brote o campaña, puede recomendarse además una <strong>“dosis cero”</strong> para niñas y niños de <strong>6 a 11 meses</strong>. Esta dosis cero <strong>no cuenta</strong> como parte del esquema regular; posteriormente debe iniciarse y completarse el esquema por edad.</p>
+          <div class="result-note" style="margin: 8px 0 18px;">
+            En algunos contextos, la autoridad sanitaria o instituciones pueden requerir vacunación adicional en <strong>grupos prioritarios</strong> (por ejemplo, personal de salud, personal educativo y jornaleros/as agrícolas), incluso con dosis previas registradas. Seguir lineamientos institucionales o acudir al centro de salud.
+          </div>
+          <div class="grid">
+            <button class="btn" data-next="screen-confirmed">
+              <span class="k"><strong>Iniciar evaluación</strong><span>Responder unas pocas preguntas para obtener una recomendación orientativa</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Screen: Measles confirmed -->
+        <section class="screen" id="screen-confirmed" data-step="3" data-hint="Antecedente de sarampión">
+          <h2>Sarampión confirmado</h2>
+          <p class="sub">¿Alguna vez se confirmó sarampión por laboratorio?</p>
+          <div class="grid cols2">
+            <button class="btn" data-answer="confirmed" data-value="yes">
+              <span class="k"><strong>Sí</strong><span>Confirmado por laboratorio</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="confirmed" data-value="no_unsure">
+              <span class="k"><strong>No / No estoy seguro</strong><span>Continuar con la evaluación</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Screen: Outbreak -->
+        <section class="screen" id="screen-outbreak" data-step="4" data-hint="Contexto epidemiológico">
+          <h2>Brote o campaña</h2>
+          <p class="sub">¿Hay brote/campaña local o una recomendación vigente de la autoridad sanitaria para vacunación contra sarampión en tu zona?</p>
+          <div class="grid cols3">
+            <button class="btn" data-answer="outbreak" data-value="yes">
+              <span class="k"><strong>Sí</strong><span>Hay brote/campaña o recomendación vigente</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="outbreak" data-value="no">
+              <span class="k"><strong>No</strong><span>No hay brote/campaña en este momento</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="outbreak" data-value="unsure">
+              <span class="k"><strong>No sé</strong><span>Continuar con precaución</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Screen: Age -->
+        <section class="screen" id="screen-age" data-step="5" data-hint="Edad">
+          <h2>Edad</h2>
+          <p class="sub">¿Qué edad tiene la persona hoy?</p>
+          <div class="grid cols2">
+            <button class="btn" data-answer="age" data-value="0_5m">
+              <span class="k"><strong>0–5 meses</strong><span>Menor de 6 meses</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="age" data-value="6_11m">
+              <span class="k"><strong>6–11 meses</strong><span>Posible dosis cero en brote/campaña</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="age" data-value="12_17m">
+              <span class="k"><strong>12–17 meses</strong><span>Inicio del esquema por edad</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="age" data-value="18m_9y">
+              <span class="k"><strong>18 meses a 9 años</strong><span>Completar esquema según registro</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="age" data-value="10_49y">
+              <span class="k"><strong>10–49 años</strong><span>Esquema de 2 dosis a lo largo de la vida</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="age" data-value="50p">
+              <span class="k"><strong>50 años o más</strong><span>En general no se recomienda de rutina</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Screen: Evidence -->
+        <section class="screen" id="screen-evidence" data-step="6" data-hint="Cartilla / registro">
+          <h2>Evidencia de vacunación</h2>
+          <p class="sub">¿Se cuenta con cartilla o un registro para confirmar cuántas dosis se han aplicado?</p>
+          <div class="grid cols2">
+            <button class="btn" data-answer="evidence" data-value="yes">
+              <span class="k"><strong>Sí</strong><span>Se puede confirmar con cartilla/registro</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="evidence" data-value="no_unsure">
+              <span class="k"><strong>No / No estoy seguro</strong><span>No hay registro confiable</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Screen: Doses documented -->
+        <section class="screen" id="screen-doses" data-step="7" data-hint="Dosis registradas">
+          <h2>Dosis documentadas</h2>
+          <p class="sub">Según cartilla/registro, ¿cuántas dosis contra sarampión se tienen registradas?</p>
+          <div class="grid cols3">
+            <button class="btn" data-answer="doses" data-value="0">
+              <span class="k"><strong>0 dosis</strong><span>Sin dosis registradas</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="doses" data-value="1">
+              <span class="k"><strong>1 dosis</strong><span>Una dosis registrada</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="doses" data-value="2p">
+              <span class="k"><strong>2 dosis o más</strong><span>Esquema documentado</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Screen: Dose before 12 months (conditional) -->
+        <section class="screen" id="screen-before12" data-step="8" data-hint="Fecha de la dosis">
+          <h2>Edad al vacunarse</h2>
+          <p class="sub" id="before12Prompt">Esa dosis registrada, ¿se aplicó antes de cumplir 12 meses?</p>
+          <div class="grid cols3">
+            <button class="btn" data-answer="before12" data-value="yes">
+              <span class="k"><strong>Sí</strong><span>Antes de 12 meses (dosis temprana)</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="before12" data-value="no">
+              <span class="k"><strong>No</strong><span>A los 12 meses o después</span></span>
+              <span class="chev">→</span>
+            </button>
+            <button class="btn" data-answer="before12" data-value="unsure">
+              <span class="k"><strong>No lo sé</strong><span>El registro no lo aclara</span></span>
+              <span class="chev">→</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Screen: Result -->
+        <section class="screen" id="screen-result" data-step="9" data-hint="Resultado">
+          <div class="result">
+            <span class="badge" id="resultBadge"><span class="dot" aria-hidden="true"></span><span id="badgeText">Resultado</span></span>
+            <div class="result-card">
+              <h3 id="resultTitle">Resultado</h3>
+              <p id="resultPrimary">—</p>
+              <p id="resultSecondary">—</p>
+            </div>
+            <div class="result-note" id="resultNote">Nota: esta herramienta es orientativa. En caso de brote/campaña, la estrategia local puede indicar acciones adicionales. Si hay duda, acudir al centro de salud con cartilla/registro.</div>
+          </div>
+        </section>
       </div>
+
+      <div class="footer">
+        <div class="small" id="footerSmall">Sugerencia: usar cartilla/registro cuando esté disponible.</div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <button class="navbtn secondary" id="btnBack">← Atrás</button>
+          <button class="navbtn" id="btnHome">Inicio</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="small" style="margin:14px 4px 0; color: rgba(255,255,255,0.55); line-height:1.45;">
+      <div style="font-weight:650; color: rgba(255,255,255,0.70);">TraveldocMX | Dr. Rodrigo Ville Benavides (Infectología)</div>
+      <div style="margin-top:8px;">Basado en:</div>
+      <div style="margin-top:6px;">
+        <a href="https://www.gob.mx/cms/uploads/attachment/file/905605/Lineamientos_de_Campan_a_de_Vacunacion_y_Recuperacion_de_Coberturas_2024_Vf.pdf" target="_blank" rel="noopener noreferrer">Lineamientos de Campaña de Vacunación y Recuperación de Coberturas 2024</a>
+        · <a href="https://www.gob.mx/cms/uploads/attachment/file/977163/Lineamientos_Generales_2025_.pdf" target="_blank" rel="noopener noreferrer">Lineamientos Generales 2025</a>
+        · <a href="https://educacionensalud.imss.gob.mx/ces_wp/wp-content/uploads/2025/07/INFO_IEPCS_Esquema-vacunacion_V5A.pdf" target="_blank" rel="noopener noreferrer">IMSS: Esquema de vacunación (V5A)</a>
+      </div>
+      <div style="margin-top:10px;">Uso orientativo/educativo. No es publicidad y no sustituye una valoración médica ni las recomendaciones vigentes de la autoridad sanitaria (local o federal).</div>
+      <div style="margin-top:6px;">Los lineamientos pueden cambiar; verifica la información en canales oficiales o en tu unidad de salud.</div>
+      <div style="margin-top:10px;">Versión 1.0 | Actualizado: 2026-02-06</div>
+      <div style="margin-top:6px;">Comentarios/correcciones: <a href="mailto:dr.rodrigoville@gmail.com">dr.rodrigoville@gmail.com</a></div>
     </div>
   </div>
 
-<script>
-  const $ = (id) => document.getElementById(id);
+  <script>
+  (function(){
+    const MAX_STEPS = 9;
 
-  // --- Date helpers for month-only DOB ---
-  function parseMonth(v){
-    // v like "YYYY-MM"
-    if(!v) return null;
-    const parts = v.split('-');
-    if(parts.length !== 2) return null;
-    const y = Number(parts[0]);
-    const m = Number(parts[1]);
-    if(!Number.isFinite(y) || !Number.isFinite(m) || m < 1 || m > 12) return null;
-    return new Date(Date.UTC(y, m-1, 1)); // first day of that month
-  }
+    const screens = Array.from(document.querySelectorAll('.screen'));
+    const progressBar = document.getElementById('progressBar');
+    const stepLabel = document.getElementById('stepLabel');
+    const stepHint = document.getElementById('stepHint');
 
-  function fmtMonthYear(d){
-    const mm = String(d.getUTCMonth()+1).padStart(2,'0');
-    const yy = d.getUTCFullYear();
-    return `${mm}/${yy}`;
-  }
+    const btnBack = document.getElementById('btnBack');
+    const btnHome = document.getElementById('btnHome');
+    const btnRestart = document.getElementById('btnRestart');
 
-  function ageFromMonth(dob, now){
-    // dob and now are JS Dates; dob treated as first day of month
-    let years = now.getFullYear() - dob.getUTCFullYear();
-    let months = now.getMonth() - dob.getUTCMonth();
-    if(months < 0){
-      years -= 1;
-      months += 12;
-    }
-    // If current date is before day 1? never; dob is day 1. No day correction needed.
-    return {years, months};
-  }
+    const footerSmall = document.getElementById('footerSmall');
 
-  function tagHTML(kind, text){
-    const cls = kind === 'ok' ? 'ok' : (kind === 'warn' ? 'warn' : 'bad');
-    return `<span class="tag ${cls}">${text}</span>`;
-  }
+    const resultBadge = document.getElementById('resultBadge');
+    const badgeText = document.getElementById('badgeText');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultPrimary = document.getElementById('resultPrimary');
+    const resultSecondary = document.getElementById('resultSecondary');
+    const resultNote = document.getElementById('resultNote');
 
-  function setKPI(dob, now, age){
-    $('kpi').innerHTML = `
-      <span class="pill"><b>Edad:</b> ${age.years} años ${age.months} meses</span>
-      <span class="pill"><b>Nac:</b> ${fmtMonthYear(dob)}</span>
-      <span class="pill"><b>Hoy:</b> ${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()}</span>
-    `;
-  }
+    const before12Prompt = document.getElementById('before12Prompt');
 
-  // --- Core recommendations (requested wording: no exact dates, no "hoy") ---
-  function recommend(){
-    const now = new Date();
-    const dob = parseMonth($('dobMonth').value);
-    const measles = $('measles').value;
-    const doses = $('doses').value;
+    const state = {
+      confirmed: null,
+      outbreak: null,
+      age: null,
+      evidence: null,
+      doses: null,
+      before12: null,
+      before12Context: null
+    };
 
-    if(!dob){
-      $('result').innerHTML = `<div class="callout">${tagHTML('bad','Falta dato')} Ingresa un <b>mes/año</b> válido.</div>`;
-      $('kpi').innerHTML = '';
-      return;
+    const navStack = [];
+
+    function getScreen(id){ return document.getElementById(id); }
+
+    function footerHintFor(id){
+      if(id === 'screen-disclaimer') return 'Lee el aviso y continúa para iniciar el flujo.';
+      if(id === 'screen-intro') return 'Sugerencia: si hay cartilla/registro, úsalo para confirmar dosis.';
+      if(id === 'screen-confirmed') return 'Si hubo sarampión confirmado por laboratorio, la vacunación usualmente no es necesaria.';
+      if(id === 'screen-outbreak') return 'En brote/campaña, la recomendación puede variar por localidad.';
+      if(id === 'screen-age') return 'Selecciona el rango de edad actual.';
+      if(id === 'screen-evidence') return 'La cartilla/registro mejora la precisión de la recomendación.';
+      if(id === 'screen-doses') return 'Cuenta las dosis registradas contra sarampión.';
+      if(id === 'screen-before12') return 'Distinguir dosis temprana (antes de 12 meses) vs esquema por edad.';
+      if(id === 'screen-result') return 'Si hay duda, acudir al centro de salud con cartilla/registro.';
+      return '—';
     }
 
-    // If DOB is in future month
-    const monthStartNow = new Date(Date.UTC(now.getFullYear(), now.getMonth(), 1));
-    if(dob.getTime() > monthStartNow.getTime()){
-      $('result').innerHTML = `<div class="callout">${tagHTML('bad','Dato inválido')} El mes/año de nacimiento no puede ser posterior al mes actual.</div>`;
-      $('kpi').innerHTML = '';
-      return;
+    function updateTopline(id){
+      const el = getScreen(id);
+      const step = Number(el?.getAttribute('data-step') || 1);
+      const hint = el?.getAttribute('data-hint') || '';
+
+      stepLabel.textContent = `Paso ${step}`;
+      stepHint.textContent = hint;
+
+      const pct = Math.min(100, Math.max(0, Math.round((step / MAX_STEPS) * 100)));
+      progressBar.style.width = pct + '%';
+
+      footerSmall.textContent = footerHintFor(id);
+
+      // Hide buttons on specific screens
+      const hideBack = (id === 'screen-disclaimer');
+      const hideHome = (id === 'screen-disclaimer' || id === 'screen-intro');
+
+      btnBack.style.display = hideBack ? 'none' : '';
+      btnHome.style.display = hideHome ? 'none' : '';
+
+      btnBack.disabled = navStack.length <= 1;
+      btnBack.style.opacity = btnBack.disabled ? 0.55 : 1;
     }
 
-    const age = ageFromMonth(dob, now);
-    setKPI(dob, now, age);
+    function showScreen(id, mode='push'){
+      screens.forEach(s => s.classList.remove('active'));
+      const el = getScreen(id);
+      if(!el) return;
+      el.classList.add('active');
 
-    const years = age.years;
-    const monthsTotal = years*12 + age.months;
-
-    // Threshold updated: born before 1957 presumed immune in this tool
-    const birthYear = dob.getUTCFullYear();
-    if(birthYear < 1957){
-      $('result').innerHTML = `
-        <div class="callout">
-          ${tagHTML('ok','No vacunar')}
-          <b>Nacido/a antes de 1957</b>: en esta guía se asume inmunidad por infección natural en la infancia. No se indica vacuna.
-          <small>Si hay <b>brotes institucionales</b>, <b>inmunosupresión</b>, o <b>protocolos específicos</b>, confirma con autoridades locales o con su médico.</small>
-        </div>
-      `;
-      return;
-    }
-
-    // < 6 months
-    if(monthsTotal < 6){
-      $('result').innerHTML = `
-        <div class="callout">
-          ${tagHTML('warn','Aún no corresponde')}
-          <b>Menor de 6 meses</b>: se sugiere aplicar dosis cero al cumplir seis meses de edad.
-          <small>Si hay exposición, inmunosupresión, embarazo (madre), lactancia, síntomas o brote institucional, consultar con profesionales de la salud.</small>
-        </div>
-      `;
-      return;
-    }
-
-    // 6–11 months: assume outbreak => dose 0
-    if(monthsTotal >= 6 && monthsTotal <= 11){
-      $('result').innerHTML = `
-        <div class="callout">
-          ${tagHTML('warn','Vacunar')}
-          <b>Edad 6–11 meses (durante epidemias)</b>: aplicar <b>dosis cero</b> lo más pronto posible (no cuenta como parte del esquema estándar de vacuanción).
-          <div style="margin-top:10px;">
-            <b>Después:</b>
-            <ul style="margin:8px 0 0 18px;color:var(--text);">
-              <li><b>Dosis 1</b> (esquema): al cumplir <b>12 meses</b>, respetando intervalo mínimo de <b>28 días</b> desde la dosis cero.</li>
-              <li><b>Dosis 2</b>: al cumplir los <b>18 meses</b>.</li>
-            </ul>
-          </div>
-          <small>Si hay inmunosupresión, lactancia, exposición reciente, síntomas o brote institucional, consultar con profesionales de la salud.</small>
-        </div>
-      `;
-      return;
-    }
-
-    // Pediatric rule for 12 months to 9 years (direct to recommendation; consider vaccination status)
-    const cutoff = new Date(Date.UTC(2020, 6, 1)); // 2020-07-01
-    const bornAfterCutoff = dob.getTime() >= cutoff.getTime();
-
-    if(monthsTotal >= 12 && years <= 9){
-      // 12m–9y: "vacunarse"; operationally you either start or complete
-      // Requested rule:
-      // Dose 1 at 12 months (or now if not vaccinated).
-      // Dose 2 at 18 months if born >= July 2020; or at 6 years if born before July 2020.
-
-      // We keep dose-count logic for practical start/complete.
-      let header = `${tagHTML('warn','Vacunar')} <b>Edad 12 meses a 9 años</b>: completar esquema de vacunación de dos dosis.`;
-
-      let rec = '';
-      const dose2Target = bornAfterCutoff ? 'a los <b>18 meses</b>' : 'o a los <b>6 años cumplidos</b>';
-
-      if(doses === '2'){
-        rec = `
-          ${tagHTML('ok','No vacunar')}
-          Reporta <b>2 dosis</b>: esquema completo.
-          <small>Si hay duda documental o un protocolo específico distinto, confirmar con autoridades locales o con su médico.</small>
-        `;
-      } else if(doses === '1'){
-        rec = `
-          ${tagHTML('warn','Vacunar')}
-          Reporta <b>1 dosis</b>: aplicar <b>una dosis</b> lo más pronto posible para completar 2 dosis a lo largo de la vida.
-          <small>En esta guía, la segunda dosis corresponde ${dose2Target} (según mes/año de nacimiento), pero en epidemia se puede aplicar cuando falta para completar.</small>
-        `;
-      } else if(doses === '0'){
-        rec = `
-          ${tagHTML('warn','Vacunar')}
-          Reporta <b>0 dosis</b>: 
-          <ul style="margin:8px 0 0 18px;color:var(--text);">
-            <li><b>Dosis 1</b>: lo más pronto posible.</li>
-            <li><b>Dosis 2</b>: cuando corresponda por edad (${dose2Target}) o con intervalo mínimo de <b>4 semanas</b> entre dosis.</li>
-          </ul>
-        `;
+      if(mode === 'replace'){
+        if(navStack.length === 0) navStack.push(id);
+        else navStack[navStack.length - 1] = id;
       } else {
-        rec = `
-          ${tagHTML('warn','Vacunar')}
-          <b>No se conoce</b> el número de dosis: en epidemia, si no hay evidencia documental confiable, completar esquema.
-          <small>En general: aplicar las dosis faltantes en cuanto sea posible (dosis y/o refuerzo según edad y recomendaciones locales).</small>
-        `;
+        if(navStack.length === 0 || navStack[navStack.length - 1] !== id) navStack.push(id);
       }
 
-      $('result').innerHTML = `
-        <div class="callout">
-          ${header}
-          <div style="margin-top:10px;">
-            <b>Regla pediátrica:</b>
-            <ul style="margin:8px 0 0 18px;color:var(--text);">
-              <li><b>Dosis 1</b>: a los <b>12 meses</b> (o lo más pronto posible si no se ha vacunado).</li>
-              <li><b>Dosis 2</b>: a los <b>18 meses</b> si nació a partir de <b>julio 2020</b>, o a los <b>6 años</b> si nació antes de <b>julio 2020</b>.</li>
-            </ul>
-          </div>
-          <div style="margin-top:10px;">${rec}</div>
-        </div>
-      `;
-      return;
+      updateTopline(id);
+
+      try{ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      catch { window.scrollTo(0,0); }
     }
 
-    // 10–49 years (align with IMSS style: if no documentation => 2 doses 4 weeks apart; if 1 prior => 1 dose)
-    if(years >= 10 && years <= 49){
-      // If measles yes OR doses==2 => no vaccine
-      if(measles === 'yes' || doses === '2'){
-        $('result').innerHTML = `
-          <div class="callout">
-            ${tagHTML('ok','No vacunar')}
-            <b>Edad 10–49 años</b>: si ya tuvo sarampión o cuenta con <b>2 dosis</b> documentadas, no se indica vacunación.
-            <small>Si hay brotes institucionales, inmunosupresión, embaraazo/lactancia, síntomas, exposición reciente o protocolos específicos, consultar con autoridades locales o con su médico.</small>
-          </div>
-        `;
+    function resetState(){
+      state.confirmed = null;
+      state.outbreak = null;
+      state.age = null;
+      state.evidence = null;
+      state.doses = null;
+      state.before12 = null;
+      state.before12Context = null;
+    }
+
+    function hardRestart(){
+      resetState();
+      navStack.length = 0;
+      showScreen('screen-disclaimer','push');
+    }
+
+    function makeResult(kind, title, primary, secondary){
+      return { kind, title, primary, secondary };
+    }
+
+    function applyResult(res){
+      resultBadge.classList.remove('ok','warn');
+      if(res.kind === 'ok'){
+        resultBadge.classList.add('ok');
+        badgeText.textContent = 'Se recomienda acción';
+      } else {
+        resultBadge.classList.add('warn');
+        badgeText.textContent = 'Orientación';
+      }
+
+      resultTitle.textContent = res.title;
+      resultPrimary.textContent = res.primary;
+      resultSecondary.textContent = res.secondary;
+
+      let note = 'Nota: esta herramienta es orientativa. En caso de brote/campaña, la estrategia local puede indicar acciones adicionales. Si hay duda, acudir al centro de salud con cartilla/registro.';
+      if(state.confirmed === 'yes'){
+        note = 'Nota: si hubo sarampión confirmado por laboratorio, en general no se requiere vacunación. Si existe indicación médica especial o recomendación formal, seguir esa indicación.';
+      }
+      resultNote.textContent = note;
+    }
+
+    function recommendTextForNoRecord(){
+      const o = state.outbreak;
+      switch(state.age){
+        case '0_5m':
+          return makeResult('warn','Resultado','Aún no corresponde vacunación.','Revisar nuevamente al cumplir 6 meses si hay una indicación vigente por brote (dosis cero).');
+        case '6_11m':
+          if(o === 'yes' || o === 'unsure'){
+            return makeResult('ok','Resultado','Sí se sugiere vacunación (dosis cero).','Acudir al centro de salud para valoración y aplicación según recomendación vigente.');
+          }
+          return makeResult('warn','Resultado','En general aún no corresponde vacunación de rutina en esta edad.','Acudir al centro de salud si existe indicación especial o si cambia la recomendación vigente.');
+        case '12_17m':
+          return makeResult('ok','Resultado','Sí se sugiere vacunación en cuanto sea posible.','Acudir al centro de salud con cartilla (si se cuenta con ella).');
+        case '18m_9y':
+          if(o === 'yes' || o === 'unsure'){
+            return makeResult('ok','Resultado','Sí se sugiere vacunación en cuanto sea posible.','Acudir al centro de salud con cartilla (si se cuenta con ella).');
+          }
+          return makeResult('ok','Resultado','Sí se sugiere vacunación si no se cuenta con esquema completo o no hay certeza.','Acudir al centro de salud con cartilla (si se cuenta con ella).');
+        case '10_49y':
+          return makeResult('ok','Resultado','Sí se sugiere vacunación en cuanto sea posible.','Se debe completar un esquema de 2 dosis separadas por al menos 28 días.');
+        case '50p':
+          return makeResult('warn','Resultado','En general no es necesario vacunarse de rutina.','Acudir a valoración médica si existe indicación especial o si hay campaña local/recomendación de la autoridad sanitaria.');
+        default:
+          return makeResult('warn','Resultado','Información insuficiente.','Reiniciar y completar la evaluación.');
+      }
+    }
+
+    function computeResult(){
+      if(state.confirmed === 'yes'){
+        return makeResult('warn','Resultado','No es necesario vacunarse.','Si existe una indicación médica especial o una recomendación específica de la autoridad sanitaria, seguir esa indicación.');
+      }
+
+      if(state.evidence === 'no_unsure'){
+        return recommendTextForNoRecord();
+      }
+
+      const o = state.outbreak;
+      const age = state.age;
+      const doses = state.doses;
+
+      if(age === '0_5m'){
+        return makeResult('warn','Resultado','Aún no corresponde vacunación.','Revisar nuevamente al cumplir 6 meses si hay una indicación vigente por brote (dosis cero).');
+      }
+
+      if(age === '50p'){
+        return makeResult('warn','Resultado','En general no es necesario vacunarse de rutina.','Acudir a valoración médica si existe indicación especial o si hay campaña local/recomendación de la autoridad sanitaria.');
+      }
+
+      if(age === '10_49y'){
+        if(doses === '0') return makeResult('ok','Resultado','Sí se recomienda iniciar esquema de vacunación de 2 dosis.','La segunda dosis se aplica al menos 28 días después de la primera.');
+        if(doses === '1') return makeResult('ok','Resultado','Sí se recomienda aplicar una dosis para completar esquema.','Acudir al centro de salud con cartilla/registro.');
+        return makeResult('warn','Resultado','No es necesario vacunarse.','Conservar cartilla/registro.');
+      }
+
+      if(age === '6_11m'){
+        if(doses === '0'){
+          if(o === 'yes' || o === 'unsure') return makeResult('ok','Resultado','Sí se sugiere vacunación (dosis cero).','Acudir al centro de salud para valoración y aplicación según recomendación vigente.');
+          return makeResult('warn','Resultado','En general no se recomienda dosis cero fuera de brote/campaña.','Acudir al centro de salud si existe indicación especial.');
+        }
+        if(state.before12 === 'yes'){
+          return makeResult('warn','Resultado','No se recomienda aplicar otra dosis ahora.','Se recomienda iniciar/continuar el esquema a partir de los 12 meses, según indicación del centro de salud.');
+        }
+        return makeResult('warn','Resultado','Se recomienda acudir al centro de salud con la cartilla/registro.','El personal de salud confirmará si corresponde dosis cero en este momento.');
+      }
+
+      if(age === '12_17m'){
+        if(doses === '0') return makeResult('ok','Resultado','Sí se recomienda iniciar esquema de vacunación en cuanto sea posible.','Acudir al centro de salud con cartilla/registro.');
+        if(doses === '1'){
+          if(state.before12 === 'yes') return makeResult('ok','Resultado','Sí se recomienda vacunación ahora (inicio del esquema formal).','Deben pasar al menos 28 días entre dosis.');
+          if(state.before12 === 'no') return makeResult('warn','Resultado','No se recomienda aplicar otra dosis ahora.','Acudir al centro de salud para confirmar cuándo corresponde la siguiente dosis según el esquema por edad.');
+          return makeResult('warn','Resultado','Se recomienda acudir al centro de salud con cartilla/registro.','Se confirmará si la dosis fue antes o después de 12 meses y si corresponde una dosis en este momento.');
+        }
+        return makeResult('warn','Resultado','En general no se recomienda aplicar otra dosis ahora.','Acudir al centro de salud si existen dudas sobre fechas o registros.');
+      }
+
+      if(age === '18m_9y'){
+        if(doses === '0') return makeResult('ok','Resultado','Sí se recomienda iniciar esquema de vacunación en cuanto sea posible.','Acudir al centro de salud con cartilla/registro.');
+        if(doses === '1') return makeResult('ok','Resultado','Sí se recomienda completar esquema con una dosis más.','Acudir al centro de salud con cartilla/registro.');
+        if(o === 'yes' || o === 'unsure'){
+          return makeResult('warn','Resultado','No es necesario vacunarse; se considera esquema completo.','En brote/campaña, el personal de salud puede indicar acciones de intensificación según la estrategia local.');
+        }
+        return makeResult('warn','Resultado','No es necesario vacunarse; se considera esquema completo.','Acudir al centro de salud si existen dudas sobre el registro.');
+      }
+
+      return makeResult('warn','Resultado','Información insuficiente.','Reiniciar y completar la evaluación.');
+    }
+
+    function goToResult(){
+      const res = computeResult();
+      applyResult(res);
+      showScreen('screen-result','push');
+    }
+
+    // Flow buttons
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if(!btn) return;
+
+      const next = btn.getAttribute('data-next');
+      if(next){
+        showScreen(next,'push');
         return;
       }
 
-      const caution = (measles === 'unknown')
-        ? `<small>${tagHTML('warn','Dato incierto')} No se conoce antecedente de sarampión: si no hay evidencia de infección previa, se maneja como <b>no</b>.</small>`
-        : '';
+      const ans = btn.getAttribute('data-answer');
+      const val = btn.getAttribute('data-value');
+      if(!ans) return;
 
-      if(doses === '1'){
-        $('result').innerHTML = `
-          <div class="callout">
-            ${tagHTML('warn','Vacunar')}
-            <b>Edad 10–49 años</b>, <b>1 dosis</b> y sin antecedente de sarampión: aplicar <b>1 dosis</b> lo más pronto posible para completar su esquema.
-            ${caution}
-          </div>
-        `;
+      if(ans === 'confirmed'){
+        state.confirmed = (val === 'yes') ? 'yes' : 'no_unsure';
+        if(state.confirmed === 'yes'){
+          state.outbreak = null; state.age = null; state.evidence = null; state.doses = null; state.before12 = null; state.before12Context = null;
+          goToResult();
+        } else {
+          showScreen('screen-outbreak','push');
+        }
         return;
       }
 
-      // 0 or unknown doses, no measles => 2 doses 4 weeks apart
-      $('result').innerHTML = `
-        <div class="callout">
-          ${tagHTML('warn','Vacunar')}
-          <b>Edad 10–49 años</b> y sin antecedente de sarampión: aplicar <b>2 dosis</b> separadas por <b>28 días</b> (captación) cuando no hay esquema completo documentado.
-          <div style="margin-top:10px;">
-            <ul style="margin:8px 0 0 18px;color:var(--text);">
-              <li><b>Dosis 1</b>: lo más pronto posible.</li>
-              <li><b>Dosis 2</b>: <b>4 semanas</b> después.</li>
-            </ul>
-          </div>
-          ${caution}
-          <small>Si hay brotes institucionales, inmunosupresión, embaraazo/lactancia, síntomas, exposición reciente o protocolos específicos, confirmar con autoridades locales o con su médico.</small>
-        </div>
-      `;
-      return;
+      if(ans === 'outbreak'){
+        state.outbreak = val;
+        showScreen('screen-age','push');
+        return;
+      }
+
+      if(ans === 'age'){
+        state.age = val;
+        state.evidence = null; state.doses = null; state.before12 = null; state.before12Context = null;
+        showScreen('screen-evidence','push');
+        return;
+      }
+
+      if(ans === 'evidence'){
+        state.evidence = (val === 'yes') ? 'yes' : 'no_unsure';
+        state.doses = null; state.before12 = null; state.before12Context = null;
+        if(state.evidence === 'no_unsure') goToResult();
+        else showScreen('screen-doses','push');
+        return;
+      }
+
+      if(ans === 'doses'){
+        state.doses = val;
+        state.before12 = null; state.before12Context = null;
+
+        if(state.age === '6_11m' && (val === '1' || val === '2p')){
+          state.before12Context = '6_11m';
+          before12Prompt.textContent = 'Esa dosis registrada, ¿se aplicó antes de cumplir 12 meses?';
+          showScreen('screen-before12','push');
+          return;
+        }
+
+        if(state.age === '12_17m' && val === '1'){
+          state.before12Context = '12_17m';
+          before12Prompt.textContent = 'Esa dosis registrada, ¿se aplicó antes de cumplir 12 meses?';
+          showScreen('screen-before12','push');
+          return;
+        }
+
+        goToResult();
+        return;
+      }
+
+      if(ans === 'before12'){
+        state.before12 = val;
+        goToResult();
+      }
+    });
+
+    // Nav buttons
+    btnBack.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(navStack.length <= 1) return;
+      navStack.pop();
+      const prev = navStack[navStack.length - 1];
+      showScreen(prev,'replace');
+    });
+
+    btnHome.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetState();
+      navStack.length = 0;
+      showScreen('screen-intro','push');
+    });
+
+    btnRestart.addEventListener('click', (e) => {
+      e.preventDefault();
+      hardRestart();
+    });
+
+    // Exit button (disclaimer)
+    const btnExit = document.getElementById('btnExit');
+    if(btnExit){
+      btnExit.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.close();
+        setTimeout(() => {
+          window.location.href = 'about:blank';
+        }, 60);
+      });
     }
 
-    // >= 50 years fallback (many will be <1957 already handled)
-    $('result').innerHTML = `
-      <div class="callout">
-        ${tagHTML('ok','No vacunar')}
-        <b>≥ 50 años</b>: frecuentemente hay inmunidad por exposición/infección previa, pero la conducta puede depender de lineamientos locales o recomendaciones médicas.
-        <small>Si hay brotes institucionales, inmunosupresión, síntomas, exposición reciente o protocolos específicos, confirmar con autoridades locales o con su médico.</small>
-      </div>
-    `;
-  }
-
-  // UI: show adult questions only for >=10y
-  function updateQuestionsVisibility(){
-    const dob = parseMonth($('dobMonth').value);
-    if(!dob){
-      $('adultQuestions').classList.remove('hide');
-      return;
+    // Minimal "tests" (dev sanity checks)
+    function assert(cond, msg){
+      if(!cond){
+        console.error('[measles-tool] Test failed:', msg);
+        throw new Error(msg);
+      }
     }
-    const now = new Date();
-    const age = ageFromMonth(dob, now);
-    if(age.years < 10) $('adultQuestions').classList.add('hide');
-    else $('adultQuestions').classList.remove('hide');
-  }
 
-    // Disclaimer gating (robusto: funciona aun si localStorage está bloqueado)
-  function safeGet(key){
-    try{ return window.localStorage ? localStorage.getItem(key) : null; }catch(e){ return null; }
-  }
-  function safeSet(key, val){
-    try{ if(window.localStorage) localStorage.setItem(key, val); }catch(e){ /* ignorar */ }
-  }
-
-  function initDisclaimer(){
-    const accepted = safeGet('measles_tool_disclaimer_accepted');
-    if(accepted === 'yes'){
-      $('disclaimerOverlay').classList.add('hide');
-      return;
+    function runTests(){
+      assert(getScreen('screen-disclaimer'), 'Missing screen-disclaimer');
+      assert(getScreen('screen-intro'), 'Missing screen-intro');
+      assert(btnBack && btnHome && btnRestart, 'Missing nav buttons');
+      assert(progressBar && stepLabel && stepHint, 'Missing progress elements');
+      assert(resultTitle && resultPrimary && resultSecondary, 'Missing result elements');
+      console.info('[measles-tool] Basic DOM tests passed');
     }
-    $('disclaimerOverlay').classList.remove('hide');
-  }
 
-  $('enter').addEventListener('click', (e) => {
-    e.preventDefault();
-    // Guardar preferencia si se puede, pero siempre dejar continuar
-    safeSet('measles_tool_disclaimer_accepted', 'yes');
-    $('disclaimerOverlay').classList.add('hide');
-  });
-    // Guardar preferencia si se puede, pero siempre dejar continuar
-    safeSet('measles_tool_disclaimer_accepted', 'yes');
-    $('disclaimerOverlay').classList.add('hide');
-  });
-
-  $('calc').addEventListener('click', recommend);
-  $('reset').addEventListener('click', () => {
-    $('dobMonth').value = '';
-    $('measles').value = 'no';
-    $('doses').value = 'unknown';
-    $('kpi').innerHTML = '';
-    $('result').innerHTML = `
-      <div class="callout">
-        Ingresa el <b>mes/año de nacimiento</b> y presiona <b>Calcular recomendación</b>.
-        <small>Se calculará la edad aproximada en años/meses y se emitirá la conducta sugerida.</small>
-      </div>
-    `;
-    updateQuestionsVisibility();
-  });
-
-  $('dobMonth').addEventListener('change', updateQuestionsVisibility);
-
-  updateQuestionsVisibility();
-  initDisclaimer();
-</script>
+    runTests();
+    hardRestart();
+  })();
+  </script>
 </body>
 </html>
